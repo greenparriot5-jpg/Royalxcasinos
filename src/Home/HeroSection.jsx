@@ -16,7 +16,7 @@ const gameImage =
 
 return ( <section className="relative overflow-hidden bg-gray-200">
 
-```
+
   {/* ================= BACKGROUND ================= */}
   <div className="absolute inset-0 overflow-hidden">
 
