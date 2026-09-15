@@ -10,7 +10,7 @@ import {
 
 function HeroSection() {
   const gameReferralLink =
-    "https://xrefer.cc?refer_id=101170453454";
+    "https://xrefer.cc?refer_id=101173217883";
 
   const gameImage =
     "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTiqfYH_OIo9NQkbkxCcnY901RV6ddx6PfIsqiRfgdx1cmF3ZdgfbG2Ass0&s=10";
