@@ -9,8 +9,7 @@ import {
 } from "react-icons/fa";
 
 function DownloadHero() {
-  const gameReferralLink =
-    "https://xrefer.cc?refer_id=101173217883";
+  const gameReferralLink = "https://xrefer.cc?refer_id=101173217883";
 
   const gameImage =
     "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTiqfYH_OIo9NQkbkxCcnY901RV6ddx6PfIsqiRfgdx1cmF3ZdgfbG2Ass0&s=10";
@@ -32,7 +31,6 @@ function DownloadHero() {
       />
 
       <div className="relative z-10 mx-auto w-full max-w-7xl px-4 py-5 sm:px-6 lg:px-8 lg:py-8">
-
         {/* Top Image */}
         <div className="relative mx-auto mb-8 w-full max-w-5xl">
           <div className="absolute left-1/2 top-1/2 h-[220px] w-[70%] -translate-x-1/2 -translate-y-1/2 rounded-full bg-yellow-400/30 blur-[100px]" />
@@ -65,7 +63,6 @@ function DownloadHero() {
 
         {/* Main Content */}
         <div className="mx-auto max-w-5xl text-center">
-
           <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-yellow-500/30 bg-white/70 px-4 py-2 text-xs font-bold uppercase tracking-[0.16em] text-yellow-700 shadow-sm backdrop-blur-sm">
             <FaCrown />
             Royal X Casino Download
@@ -79,10 +76,10 @@ function DownloadHero() {
           </h1>
 
           <p className="mx-auto mt-5 max-w-3xl text-base leading-8 text-gray-600 sm:text-lg">
-            Access Royal X Casino from your compatible mobile device and
-            explore a convenient gaming platform designed for easy navigation.
-            Use the download option to access the platform and discover the
-            available gaming experience.
+            Access Royal X Casino from your compatible mobile device and explore
+            a convenient gaming platform designed for easy navigation. Use the
+            download option to access the platform and discover the available
+            gaming experience.
           </p>
 
           {/* Buttons */}
@@ -145,114 +142,10 @@ function DownloadHero() {
                 Easy Navigation
               </h3>
               <p className="mt-2 text-xs leading-6 text-gray-500">
-                A simple layout helps users move between the available
-                sections and gaming options more comfortably.
+                A simple layout helps users move between the available sections
+                and gaming options more comfortably.
               </p>
             </div>
-          </div>
-
-          {/* Download Guide */}
-          <div className="mx-auto mt-8 max-w-4xl rounded-2xl border border-gray-300 bg-white/70 p-6 text-left shadow-sm backdrop-blur-sm sm:p-8">
-            <div className="flex items-center gap-3">
-              <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-yellow-400/20 text-yellow-700">
-                <FaCheckCircle />
-              </div>
-
-              <h2 className="text-xl font-black text-gray-900 sm:text-2xl">
-                Getting Started With Royal X
-              </h2>
-            </div>
-
-            <div className="mt-6 grid gap-4 sm:grid-cols-2">
-              <div className="flex gap-3">
-                <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-yellow-400 text-xs font-black text-gray-900">
-                  1
-                </span>
-                <div>
-                  <h3 className="text-sm font-bold text-gray-900">
-                    Open the download option
-                  </h3>
-                  <p className="mt-1 text-xs leading-6 text-gray-500">
-                    Use the provided access button to visit the Royal X
-                    platform.
-                  </p>
-                </div>
-              </div>
-
-              <div className="flex gap-3">
-                <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-yellow-400 text-xs font-black text-gray-900">
-                  2
-                </span>
-                <div>
-                  <h3 className="text-sm font-bold text-gray-900">
-                    Check device compatibility
-                  </h3>
-                  <p className="mt-1 text-xs leading-6 text-gray-500">
-                    Make sure your mobile device supports the available
-                    application or platform.
-                  </p>
-                </div>
-              </div>
-
-              <div className="flex gap-3">
-                <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-yellow-400 text-xs font-black text-gray-900">
-                  3
-                </span>
-                <div>
-                  <h3 className="text-sm font-bold text-gray-900">
-                    Explore the platform
-                  </h3>
-                  <p className="mt-1 text-xs leading-6 text-gray-500">
-                    Browse the available sections and learn about the games
-                    and platform features.
-                  </p>
-                </div>
-              </div>
-
-              <div className="flex gap-3">
-                <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-yellow-400 text-xs font-black text-gray-900">
-                  4
-                </span>
-                <div>
-                  <h3 className="text-sm font-bold text-gray-900">
-                    Play responsibly
-                  </h3>
-                  <p className="mt-1 text-xs leading-6 text-gray-500">
-                    Understand the rules and applicable terms before using
-                    any gaming feature.
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          {/* Bottom CTA */}
-          <div className="mt-8 rounded-2xl border border-yellow-400/30 bg-gray-900 p-7 shadow-xl sm:p-9">
-            <FaCrown className="mx-auto text-3xl text-yellow-400" />
-
-            <p className="mt-3 text-xs font-bold uppercase tracking-[0.2em] text-yellow-400">
-              Royal X Casino
-            </p>
-
-            <h2 className="mt-2 text-2xl font-black text-white sm:text-3xl">
-              Ready To Explore Royal X?
-            </h2>
-
-            <p className="mx-auto mt-3 max-w-2xl text-sm leading-7 text-gray-300">
-              Access the platform through the provided download option and
-              explore the Royal X Casino gaming environment from your
-              compatible device.
-            </p>
-
-            <a
-              href={gameReferralLink}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="mt-6 inline-flex items-center justify-center gap-3 rounded-xl bg-yellow-400 px-7 py-3.5 text-sm font-extrabold text-gray-900 shadow-lg transition-all duration-300 hover:-translate-y-1 hover:bg-yellow-300"
-            >
-              <FaDownload />
-              Download Royal X
-            </a>
           </div>
         </div>
       </div>

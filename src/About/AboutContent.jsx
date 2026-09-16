@@ -1,285 +1,122 @@
-import {
-  FaCrown,
-  FaBullseye,
-  FaRocket,
-  FaHeart,
-  FaCheckCircle,
-  FaArrowRight,
-} from "react-icons/fa";
-import { Link } from "react-router-dom";
 
-function AboutContent() {
+import React from "react";
+
+const AboutContent = () => {
   return (
-    <section className="relative overflow-hidden bg-gray-200 py-12 sm:py-14 lg:py-16">
+    <section
+      id="about-content"
+      className="bg-gray-200 py-8 sm:py-10 lg:py-12"
+    >
+      <div className="mx-auto max-w-5xl px-6 lg:px-8">
 
-      {/* ================= BACKGROUND ================= */}
-      <div className="pointer-events-none absolute left-[-180px] top-20 h-96 w-96 rounded-full bg-yellow-500/10 blur-[130px]" />
+        <article className="rounded-2xl border border-slate-300 bg-white p-7 shadow-sm sm:p-9 lg:p-10">
 
-      <div className="pointer-events-none absolute bottom-[-150px] right-[-120px] h-96 w-96 rounded-full bg-amber-500/10 blur-[140px]" />
+          <h2 className="text-2xl font-extrabold leading-tight text-slate-900 sm:text-3xl">
+            Royal X Casino – Online Gaming Experience
+          </h2>
 
-      {/* ================= CONTAINER ================= */}
-      <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="mt-6 space-y-6 text-base leading-8 text-slate-600 sm:text-[17px]">
 
-        {/* ================= INTRO ================= */}
-        <div className="grid items-center gap-8 lg:grid-cols-2 lg:gap-12">
-
-          {/* ================= LEFT CONTENT ================= */}
-          <div>
-
-            {/* Badge */}
-            <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-yellow-500/30 bg-yellow-400/10 px-4 py-2 text-xs font-bold uppercase tracking-[0.2em] text-yellow-700">
-              <FaCrown />
-              Our Story
-            </div>
-
-            {/* Heading */}
-            <h2 className="text-3xl font-black leading-tight tracking-tight text-gray-900 sm:text-4xl md:text-5xl">
-              Welcome To The
-
-              <span className="block bg-gradient-to-r from-yellow-500 via-yellow-500 to-amber-600 bg-clip-text text-transparent">
-                Royal Experience
-              </span>
-            </h2>
-
-            {/* Description */}
-            <p className="mt-5 text-sm leading-7 text-gray-600 sm:text-base">
-              Royal X Casino was created with a focus on delivering a modern
-              and engaging online entertainment experience. We believe that
-              great gaming starts with a platform that is simple, responsive,
-              and enjoyable to use.
+            <p>
+              Royal X Casino is a modern online gaming platform created for
+              users who want convenient access to digital entertainment and a
+              simple browsing experience. The platform focuses on clear
+              navigation, accessible information, and an interface that is
+              easy to understand for both new and returning visitors. Instead
+              of making the experience complicated, Royal X Casino presents
+              its main sections in an organized way so users can quickly find
+              information about the platform, available features, game access,
+              and downloading options.
             </p>
 
-            <p className="mt-3 text-sm leading-7 text-gray-500 sm:text-base">
-              Every part of Royal X is designed with the player experience in
-              mind — from the clean interface and smooth navigation to the
-              exciting selection of games available across devices.
+            <p>
+              For players discovering Royal X Casino for the first time,
+              understanding how the platform works can make the overall
+              experience easier. Visitors can explore the website to learn
+              about the gaming environment, account access, supported
+              features, and general gameplay information. A straightforward
+              layout is especially useful for users who prefer to browse from
+              mobile phones, tablets, or desktop computers. Responsive design
+              allows the main website sections to remain accessible across
+              different screen sizes, giving visitors a consistent experience
+              while exploring Royal X Casino.
             </p>
 
-            {/* ================= CHECKLIST ================= */}
-            <div className="mt-6 space-y-3">
-
-              <div className="flex items-center gap-3">
-                <FaCheckCircle className="shrink-0 text-sm text-yellow-600" />
-
-                <span className="text-sm text-gray-700">
-                  Modern and intuitive platform
-                </span>
-              </div>
-
-              <div className="flex items-center gap-3">
-                <FaCheckCircle className="shrink-0 text-sm text-yellow-600" />
-
-                <span className="text-sm text-gray-700">
-                  Designed for multiple devices
-                </span>
-              </div>
-
-              <div className="flex items-center gap-3">
-                <FaCheckCircle className="shrink-0 text-sm text-yellow-600" />
-
-                <span className="text-sm text-gray-700">
-                  Focused on smooth user experience
-                </span>
-              </div>
-
-              <div className="flex items-center gap-3">
-                <FaCheckCircle className="shrink-0 text-sm text-yellow-600" />
-
-                <span className="text-sm text-gray-700">
-                  Premium gaming environment
-                </span>
-              </div>
-
-            </div>
-
-            {/* ================= CTA ================= */}
-            <div className="mt-6">
-              <Link
-                to="/download"
-                className="group inline-flex items-center gap-3 rounded-xl bg-gradient-to-r from-yellow-400 via-amber-500 to-yellow-500 px-6 py-3.5 text-sm font-extrabold text-gray-900 shadow-lg shadow-yellow-500/20 transition-all duration-300 hover:-translate-y-1 hover:shadow-yellow-500/40"
-              >
-                Explore Royal X
-
-                <FaArrowRight className="text-xs transition-transform duration-300 group-hover:translate-x-1" />
-              </Link>
-            </div>
-
-          </div>
-
-          {/* ================= RIGHT CARDS ================= */}
-          <div className="grid gap-5 sm:grid-cols-2">
-
-            {/* ================= MISSION ================= */}
-            <div className="group relative overflow-hidden rounded-2xl border border-gray-300 bg-white/75 p-6 shadow-sm backdrop-blur-sm transition-all duration-500 hover:-translate-y-2 hover:border-yellow-400/50 hover:bg-white hover:shadow-xl hover:shadow-yellow-500/10">
-
-              <div className="absolute -right-10 -top-10 h-24 w-24 rounded-full bg-yellow-400/10 blur-2xl transition-all duration-500 group-hover:bg-yellow-400/20" />
-
-              <div className="relative flex h-12 w-12 items-center justify-center rounded-xl border border-yellow-500/20 bg-yellow-400/10 text-lg text-yellow-700">
-                <FaBullseye />
-              </div>
-
-              <h3 className="relative mt-5 text-lg font-bold text-gray-900 transition-colors group-hover:text-yellow-700">
-                Our Mission
-              </h3>
-
-              <p className="relative mt-3 text-sm leading-6 text-gray-600">
-                To create a clean, engaging, and enjoyable gaming platform
-                where players can easily discover their favorite experiences.
-              </p>
-
-            </div>
-
-            {/* ================= VISION ================= */}
-            <div className="group relative overflow-hidden rounded-2xl border border-gray-300 bg-white/75 p-6 shadow-sm backdrop-blur-sm transition-all duration-500 hover:-translate-y-2 hover:border-yellow-400/50 hover:bg-white hover:shadow-xl hover:shadow-yellow-500/10">
-
-              <div className="absolute -right-10 -top-10 h-24 w-24 rounded-full bg-yellow-400/10 blur-2xl transition-all duration-500 group-hover:bg-yellow-400/20" />
-
-              <div className="relative flex h-12 w-12 items-center justify-center rounded-xl border border-yellow-500/20 bg-yellow-400/10 text-lg text-yellow-700">
-                <FaRocket />
-              </div>
-
-              <h3 className="relative mt-5 text-lg font-bold text-gray-900 transition-colors group-hover:text-yellow-700">
-                Our Vision
-              </h3>
-
-              <p className="relative mt-3 text-sm leading-6 text-gray-600">
-                To build a memorable digital entertainment brand recognized
-                for quality, simplicity, and a premium player experience.
-              </p>
-
-            </div>
-
-            {/* ================= PLAYER FIRST ================= */}
-            <div className="group relative overflow-hidden rounded-2xl border border-gray-300 bg-white/75 p-6 shadow-sm backdrop-blur-sm transition-all duration-500 hover:-translate-y-2 hover:border-yellow-400/50 hover:bg-white hover:shadow-xl hover:shadow-yellow-500/10">
-
-              <div className="absolute -right-10 -top-10 h-24 w-24 rounded-full bg-yellow-400/10 blur-2xl transition-all duration-500 group-hover:bg-yellow-400/20" />
-
-              <div className="relative flex h-12 w-12 items-center justify-center rounded-xl border border-yellow-500/20 bg-yellow-400/10 text-lg text-yellow-700">
-                <FaHeart />
-              </div>
-
-              <h3 className="relative mt-5 text-lg font-bold text-gray-900 transition-colors group-hover:text-yellow-700">
-                Player First
-              </h3>
-
-              <p className="relative mt-3 text-sm leading-6 text-gray-600">
-                We focus on creating an experience that feels comfortable,
-                straightforward, and enjoyable for every player.
-              </p>
-
-            </div>
-
-            {/* ================= QUALITY ================= */}
-            <div className="group relative overflow-hidden rounded-2xl border border-gray-300 bg-white/75 p-6 shadow-sm backdrop-blur-sm transition-all duration-500 hover:-translate-y-2 hover:border-yellow-400/50 hover:bg-white hover:shadow-xl hover:shadow-yellow-500/10">
-
-              <div className="absolute -right-10 -top-10 h-24 w-24 rounded-full bg-yellow-400/10 blur-2xl transition-all duration-500 group-hover:bg-yellow-400/20" />
-
-              <div className="relative flex h-12 w-12 items-center justify-center rounded-xl border border-yellow-500/20 bg-yellow-400/10 text-lg text-yellow-700">
-                <FaCrown />
-              </div>
-
-              <h3 className="relative mt-5 text-lg font-bold text-gray-900 transition-colors group-hover:text-yellow-700">
-                Premium Quality
-              </h3>
-
-              <p className="relative mt-3 text-sm leading-6 text-gray-600">
-                From design to usability, we aim to maintain a high standard
-                across the Royal X digital experience.
-              </p>
-
-            </div>
-
-          </div>
-        </div>
-
-        {/* ================= VALUES ================= */}
-        <div className="mt-12 border-t border-gray-300/70 pt-12 sm:mt-14 sm:pt-14">
-
-          {/* Values Header */}
-          <div className="mx-auto max-w-2xl text-center">
-
-            <p className="text-xs font-bold uppercase tracking-[0.25em] text-yellow-700">
-              What We Believe
+            <p>
+              One of the important parts of any online gaming platform is
+              convenient access. Royal X Casino provides information that can
+              help users understand the available access and download process.
+              Players should always use the official game link and follow the
+              instructions provided by the platform when installing or opening
+              the game. Before downloading any application, users should make
+              sure that their device supports the required software and that
+              they understand the permissions and instructions displayed
+              during installation.
             </p>
 
-            <h2 className="mt-3 text-3xl font-black text-gray-900 sm:text-4xl">
-              Built Around
+            <p>
+              Royal X Casino also provides a simple environment for users who
+              want to learn more about online gaming terminology and general
+              platform features. New players can take time to understand the
+              available options before using them, while experienced users can
+              navigate directly to the sections they need. Clear information
+              about gameplay, account features, deposits, withdrawals, and
+              other services can help visitors make informed decisions about
+              how they use an online gaming platform.
+            </p>
 
-              <span className="text-yellow-600">
-                {" "}Better Experiences
-              </span>
-            </h2>
+            <p>
+              Another focus of the Royal X Casino experience is smooth
+              navigation. A well-structured website makes it easier to move
+              between the home page, about section, blog, contact information,
+              and download area. This organization helps visitors find useful
+              content without having to search through unnecessary pages. The
+              goal is to create a digital environment where important
+              information remains easy to locate and the overall browsing
+              experience feels simple and professional.
+            </p>
 
-            <p className="mt-3 text-sm leading-7 text-gray-600">
-              Our approach is simple: make everything easier to discover,
-              easier to use, and more enjoyable.
+            <p>
+              Online gaming can attract users with different interests and
+              levels of experience, which is why accessible information is
+              valuable. Someone who is completely new to Royal X Casino may
+              want to understand the platform before getting started, while
+              an existing user may simply need quick access to a particular
+              feature or download option. Providing clear explanations and
+              organized content helps both types of visitors navigate the
+              platform more comfortably.
+            </p>
+
+            <p>
+              Royal X Casino is presented as a digital gaming destination where
+              users can explore entertainment options through a modern web
+              experience. The platform combines simple page navigation with
+              informative content so visitors can learn about the available
+              services before proceeding. Users should always follow applicable
+              rules, review the information provided by the platform, and use
+              supported methods when accessing gaming-related features.
+            </p>
+
+            <p>
+              Overall, Royal X Casino focuses on making online gaming
+              information easier to discover through a clean and organized
+              experience. From learning about the platform and understanding
+              its features to finding download information and exploring
+              helpful articles, visitors can use the website as a central
+              source of general information. Whether someone is researching
+              Royal X Casino, learning how the platform works, or looking for
+              information about accessing the game, a simple and transparent
+              presentation can make the journey more convenient.
             </p>
 
           </div>
 
-          {/* ================= VALUES GRID ================= */}
-          <div className="mt-8 grid gap-5 md:grid-cols-3">
-
-            {/* Excellence */}
-            <div className="rounded-2xl border border-gray-300 bg-white/75 p-7 text-center shadow-sm backdrop-blur-sm transition-all duration-300 hover:border-yellow-400/50 hover:bg-white hover:shadow-xl hover:shadow-yellow-500/10">
-
-              <div className="mx-auto flex h-14 w-14 items-center justify-center rounded-2xl border border-yellow-500/20 bg-yellow-400/10 text-xl text-yellow-700">
-                <FaCrown />
-              </div>
-
-              <h3 className="mt-5 text-lg font-bold text-gray-900">
-                Excellence
-              </h3>
-
-              <p className="mt-3 text-sm leading-6 text-gray-600">
-                We aim to deliver a polished and premium experience throughout
-                the platform.
-              </p>
-
-            </div>
-
-            {/* Innovation */}
-            <div className="rounded-2xl border border-gray-300 bg-white/75 p-7 text-center shadow-sm backdrop-blur-sm transition-all duration-300 hover:border-yellow-400/50 hover:bg-white hover:shadow-xl hover:shadow-yellow-500/10">
-
-              <div className="mx-auto flex h-14 w-14 items-center justify-center rounded-2xl border border-yellow-500/20 bg-yellow-400/10 text-xl text-yellow-700">
-                <FaRocket />
-              </div>
-
-              <h3 className="mt-5 text-lg font-bold text-gray-900">
-                Innovation
-              </h3>
-
-              <p className="mt-3 text-sm leading-6 text-gray-600">
-                We embrace modern design and technology to keep the experience
-                fresh and intuitive.
-              </p>
-
-            </div>
-
-            {/* Community */}
-            <div className="rounded-2xl border border-gray-300 bg-white/75 p-7 text-center shadow-sm backdrop-blur-sm transition-all duration-300 hover:border-yellow-400/50 hover:bg-white hover:shadow-xl hover:shadow-yellow-500/10">
-
-              <div className="mx-auto flex h-14 w-14 items-center justify-center rounded-2xl border border-yellow-500/20 bg-yellow-400/10 text-xl text-yellow-700">
-                <FaHeart />
-              </div>
-
-              <h3 className="mt-5 text-lg font-bold text-gray-900">
-                Community
-              </h3>
-
-              <p className="mt-3 text-sm leading-6 text-gray-600">
-                We believe the best digital experiences are built around the
-                people who use them.
-              </p>
-
-            </div>
-
-          </div>
-        </div>
+        </article>
 
       </div>
     </section>
   );
-}
+};
 
 export default AboutContent;
+

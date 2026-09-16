@@ -1,170 +1,130 @@
 import { useState } from "react";
-import { Link, NavLink } from "react-router-dom";
-import {
-  FaBars,
-  FaTimes,
-  FaCrown,
-  FaDownload,
-  FaHome,
-  FaInfoCircle,
-  FaBlog,
-  FaEnvelope,
-} from "react-icons/fa";
+import { NavLink } from "react-router-dom";
 
 function Header() {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
+
+  const logoImage =
+    "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR_KBDeB75M-x5hAiUFJ4Kfg4vytmT1JLn9QfU1xKJtZBm2ePqvaOQiyCM&s=10";
 
   const navLinks = [
-    {
-      name: "Home",
-      path: "/",
-      icon: <FaHome />,
-    },
-    {
-      name: "About",
-      path: "/about",
-      icon: <FaInfoCircle />,
-    },
-    {
-      name: "Blog",
-      path: "/blog",
-      icon: <FaBlog />,
-    },
-    {
-      name: "Contact",
-      path: "/contact",
-      icon: <FaEnvelope />,
-    },
+    { name: "Home", path: "/" },
+    { name: "About Us", path: "/about" },
+    { name: "Contact Us", path: "/contact" },
+    { name: "Blog", path: "/blog" },
+    { name: "Download", path: "/download" },
   ];
 
-  const closeMenu = () => {
-    setIsMenuOpen(false);
-  };
-
   return (
-    <header className="sticky top-0 z-50 w-full border-b border-yellow-500/20 bg-slate-950/95 shadow-2xl shadow-black/30 backdrop-blur-xl">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="flex h-20 items-center justify-between">
+    <header className="sticky top-0 z-50 border-b border-white/10 bg-slate-950/95 text-white shadow-lg backdrop-blur-md">
+      <div className="mx-auto flex h-20 max-w-7xl items-center justify-between px-6 lg:px-8">
 
-          {/* ================= LOGO ================= */}
-          <Link
-            to="/"
-            onClick={closeMenu}
-            className="group flex items-center gap-3"
-          >
-            {/* Crown Logo */}
-            <div className="relative flex h-12 w-12 items-center justify-center rounded-xl border border-yellow-400/40 bg-gradient-to-br from-yellow-400 via-amber-500 to-yellow-600 shadow-lg shadow-yellow-500/20 transition-all duration-300 group-hover:scale-105 group-hover:shadow-yellow-400/40">
-              <div className="absolute inset-1 rounded-lg border border-white/20" />
-
-              <FaCrown className="relative text-xl text-slate-950 drop-shadow-sm" />
-            </div>
-
-            {/* Brand Name */}
-            <div className="flex flex-col leading-none">
-              <span className="text-xl font-black uppercase tracking-[0.18em] text-white sm:text-2xl">
-                Royal
-                <span className="text-yellow-400"> X</span>
-              </span>
-
-              <span className="mt-1 text-[10px] font-bold uppercase tracking-[0.35em] text-yellow-500 sm:text-xs">
-                Casino
-              </span>
-            </div>
-          </Link>
-
-          {/* ================= DESKTOP NAV ================= */}
-          <nav className="hidden items-center gap-2 lg:flex">
-            {navLinks.map((link) => (
-              <NavLink
-                key={link.path}
-                to={link.path}
-                className={({ isActive }) =>
-                  `group relative flex items-center gap-2 rounded-xl px-4 py-2.5 text-sm font-semibold transition-all duration-300 ${
-                    isActive
-                      ? "bg-yellow-400/10 text-yellow-400"
-                      : "text-gray-300 hover:bg-white/5 hover:text-yellow-400"
-                  }`
-                }
-              >
-                <span className="text-xs transition-transform duration-300 group-hover:scale-110">
-                  {link.icon}
-                </span>
-
-                {link.name}
-
-                {/* Active underline */}
-                <span
-                  className={`absolute bottom-0 left-1/2 h-0.5 w-0 -translate-x-1/2 bg-yellow-400 transition-all duration-300 group-hover:w-1/2`}
-                />
-              </NavLink>
-            ))}
-          </nav>
-
-          {/* ================= DESKTOP DOWNLOAD BUTTON ================= */}
-          <div className="hidden lg:block">
-            <Link
-              to="/download"
-              className="group relative inline-flex items-center gap-2 overflow-hidden rounded-xl bg-gradient-to-r from-yellow-400 via-amber-500 to-yellow-500 px-5 py-3 text-sm font-extrabold text-slate-950 shadow-lg shadow-yellow-500/20 transition-all duration-300 hover:-translate-y-0.5 hover:shadow-xl hover:shadow-yellow-500/30"
-            >
-              {/* Shine effect */}
-              <span className="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/30 to-transparent transition-transform duration-700 group-hover:translate-x-full" />
-
-              <FaDownload className="relative text-xs transition-transform duration-300 group-hover:translate-y-0.5" />
-
-              <span className="relative">Download App</span>
-            </Link>
+        {/* Logo */}
+        <NavLink
+          to="/"
+          onClick={() => setMenuOpen(false)}
+          className="group flex items-center gap-3"
+        >
+          <div className="flex h-12 w-12 items-center justify-center overflow-hidden rounded-xl bg-white shadow-lg shadow-yellow-400/20 transition duration-300 group-hover:scale-105">
+            <img
+              src={logoImage}
+              alt="Teen Patti Gold"
+              className="h-full w-full object-cover"
+            />
           </div>
 
-          {/* ================= MOBILE MENU BUTTON ================= */}
-          <button
-            type="button"
-            onClick={() => setIsMenuOpen(!isMenuOpen)}
-            className="flex h-11 w-11 items-center justify-center rounded-xl border border-yellow-500/20 bg-white/5 text-xl text-yellow-400 transition-all duration-300 hover:bg-yellow-400/10 lg:hidden"
-            aria-label={isMenuOpen ? "Close menu" : "Open menu"}
-            aria-expanded={isMenuOpen}
+          <div>
+            <h1 className="text-lg font-extrabold leading-none sm:text-xl">
+              ROYAL X
+              <span className="text-yellow-400"> CASINO</span>
+            </h1>
+
+            <p className="mt-1 text-[10px] font-medium uppercase tracking-[0.2em] text-white">
+              Free Download Now
+            </p>
+          </div>
+        </NavLink>
+
+        {/* Desktop Navigation */}
+        <nav className="hidden items-center gap-1 lg:flex">
+          {navLinks.map((link) => (
+            <NavLink
+              key={link.path}
+              to={link.path}
+              className={({ isActive }) =>
+                `relative rounded-lg px-4 py-2.5 text-sm font-semibold transition duration-300 ${
+                  isActive
+                    ? "bg-yellow-400 text-slate-950"
+                    : "text-slate-300 hover:bg-white/5 hover:text-yellow-400"
+                }`
+              }
+            >
+              {link.name}
+            </NavLink>
+          ))}
+        </nav>
+
+        {/* Desktop Button */}
+        <div className="hidden lg:block">
+          <NavLink
+            to="/download"
+            className="inline-flex items-center rounded-xl bg-yellow-400 px-5 py-2.5 text-sm font-bold text-slate-950 shadow-lg shadow-yellow-400/10 transition duration-300 hover:-translate-y-0.5 hover:bg-yellow-300 hover:shadow-xl hover:shadow-yellow-400/20"
           >
-            {isMenuOpen ? <FaTimes /> : <FaBars />}
-          </button>
+            Explore
+          </NavLink>
         </div>
 
-        {/* ================= MOBILE NAVIGATION ================= */}
-        <div
-          className={`overflow-hidden transition-all duration-300 lg:hidden ${
-            isMenuOpen
-              ? "max-h-[500px] pb-5 opacity-100"
-              : "max-h-0 opacity-0"
-          }`}
+        {/* Mobile Menu Button */}
+        <button
+          type="button"
+          onClick={() => setMenuOpen(!menuOpen)}
+          className="flex h-11 w-11 items-center justify-center rounded-xl border border-white/10 bg-white/5 text-sm font-bold text-white transition duration-300 hover:border-yellow-400/30 hover:text-yellow-400 lg:hidden"
+          aria-label="Toggle navigation menu"
+          aria-expanded={menuOpen}
         >
-          <nav className="space-y-2 border-t border-white/10 pt-4">
+          {menuOpen ? "Close" : "Menu"}
+        </button>
+      </div>
+
+      {/* Mobile Navigation */}
+      <div
+        className={`overflow-hidden border-t border-white/10 transition-all duration-300 lg:hidden ${
+          menuOpen
+            ? "max-h-[500px] opacity-100"
+            : "max-h-0 opacity-0"
+        }`}
+      >
+        <nav className="mx-auto max-w-7xl px-6 py-5 lg:px-8">
+
+          <div className="flex flex-col gap-2">
             {navLinks.map((link) => (
               <NavLink
                 key={link.path}
                 to={link.path}
-                onClick={closeMenu}
+                onClick={() => setMenuOpen(false)}
                 className={({ isActive }) =>
-                  `flex items-center gap-3 rounded-xl px-4 py-3.5 text-sm font-semibold transition-all duration-300 ${
+                  `rounded-xl px-4 py-3 text-sm font-semibold transition duration-300 ${
                     isActive
-                      ? "bg-yellow-400/10 text-yellow-400"
-                      : "text-gray-300 hover:bg-white/5 hover:text-yellow-400"
+                      ? "bg-yellow-400 text-slate-950"
+                      : "text-slate-300 hover:bg-white/5 hover:text-yellow-400"
                   }`
                 }
               >
-                <span className="text-sm">{link.icon}</span>
                 {link.name}
               </NavLink>
             ))}
+          </div>
 
-            {/* Mobile Download */}
-            <Link
-              to="/download"
-              onClick={closeMenu}
-              className="mt-3 flex items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-yellow-400 via-amber-500 to-yellow-500 px-5 py-3.5 text-sm font-extrabold text-slate-950 shadow-lg shadow-yellow-500/20 transition-all duration-300 hover:shadow-yellow-500/30"
-            >
-              <FaDownload className="text-xs" />
-              Download App
-            </Link>
-          </nav>
-        </div>
+          {/* Mobile Explore Button */}
+          <NavLink
+            to="/download"
+            onClick={() => setMenuOpen(false)}
+            className="mt-4 flex items-center justify-center rounded-xl bg-yellow-400 px-5 py-3 font-bold text-slate-950 transition duration-300 hover:bg-yellow-300"
+          >
+            Explore
+          </NavLink>
+
+        </nav>
       </div>
     </header>
   );
