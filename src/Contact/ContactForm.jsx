@@ -1,192 +1,216 @@
-
-import { useState } from "react";
+import React, { useState } from "react";
+import { Mail, MessageCircle, Send, Phone } from "lucide-react";
+import emailjs from "@emailjs/browser";
 
 function ContactForm() {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
-    subject: "",
+    phone: "",
     message: "",
   });
 
-  const [submitted, setSubmitted] = useState(false);
+  const [loading, setLoading] = useState(false);
 
-  const handleChange = (e) => {
-    const { name, value } = e.target;
+  function handleChange(e) {
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value,
+    });
+  }
 
-    setFormData((prev) => ({
-      ...prev,
-      [name]: value,
-    }));
-  };
-
-  const handleSubmit = (e) => {
+  function handleSubmit(e) {
     e.preventDefault();
 
-    setSubmitted(true);
+    setLoading(true);
 
-    setFormData({
-      name: "",
-      email: "",
-      subject: "",
-      message: "",
-    });
+    emailjs
+      .send(
+        "service_yx5kvr4",
+        "template_z3th0n8",
+        {
+          from_name: formData.name,
+          from_email: formData.email,
+          phone: formData.phone,
+          message: formData.message,
+          to_email: "zaarkhan483@gmail.com",
+        },
+        "o51quF5mpQW-ucABt"
+      )
+      .then((result) => {
+        console.log("EmailJS Success:", result.text);
 
-    setTimeout(() => {
-      setSubmitted(false);
-    }, 5000);
-  };
+        alert("Message Sent Successfully!");
+
+        setFormData({
+          name: "",
+          email: "",
+          phone: "",
+          message: "",
+        });
+
+        setLoading(false);
+      })
+      .catch((error) => {
+        console.error("EmailJS Error:", error);
+
+        alert(
+          `Message could not be sent.\n\nStatus: ${error.status}\nText: ${
+            error.text || "Unknown error"
+          }`
+        );
+
+        setLoading(false);
+      });
+  }
 
   return (
-    <section className="relative overflow-hidden bg-gray-200 pb-10 sm:pb-12 lg:pb-14">
-      <div className="pointer-events-none absolute bottom-0 left-1/2 h-72 w-72 -translate-x-1/2 rounded-full bg-yellow-400/10 blur-3xl" />
+    <section className="bg-gray-200">
+      <div className="mx-auto grid max-w-7xl gap-10 px-5 py-20 md:grid-cols-2">
 
-      <div className="relative mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
-        <div className="overflow-hidden rounded-3xl border border-gray-300 bg-white shadow-xl">
+        {/* LEFT SIDE */}
+        <div>
+          <p className="text-sm font-bold text-center uppercase tracking-[0.2em] text-yellow-600">
+            Contact
+          </p>
 
-          {/* HEADER */}
-          <div className="border-b border-gray-200 bg-gradient-to-r from-yellow-400/15 via-yellow-400/5 to-transparent p-5 sm:p-6">
-            <div>
-              <h2 className="text-xl font-black text-gray-900 sm:text-2xl">
-                Send Us A Message
-              </h2>
+          <h2 className="mt-3 text-4xl font-black text-slate-900">
+            We would love to hear from you
+          </h2>
 
-              <p className="mt-1 text-xs text-gray-500 sm:text-sm">
-                Fill out the form and tell us how we can help.
-              </p>
+          <p className="mt-5 leading-8 text-slate-600">
+            If you have questions, suggestions or feedback about our
+            entertainment platform, use the form and send us a message.
+          </p>
+
+          <div className="mt-8 space-y-4">
+
+            {/* EMAIL */}
+            <a
+              href="mailto:zaarkhan483@gmail.com"
+              className="flex items-center gap-4 rounded-xl border border-gray-300 bg-white p-4 transition hover:border-yellow-400 hover:shadow-sm"
+            >
+              <Mail className="text-yellow-500" />
+
+              <span className="text-slate-700">
+                contact@royalxcasinos777.com
+              </span>
+            </a>
+
+            {/* PHONE / SUPPORT */}
+            <div className="flex items-center gap-4 rounded-xl border border-gray-300 bg-white p-4">
+              <Phone className="text-yellow-500" />
+
+              <span className="text-slate-700">
+                Contact Support
+              </span>
             </div>
+
+            {/* CUSTOMER SUPPORT */}
+            <div className="flex items-center gap-4 rounded-xl border border-gray-300 bg-white p-4">
+              <MessageCircle className="text-yellow-500" />
+
+              <span className="text-slate-700">
+                Customer Support
+              </span>
+            </div>
+
+          </div>
+        </div>
+
+        {/* RIGHT SIDE */}
+        <form
+          onSubmit={handleSubmit}
+          className="rounded-2xl border border-gray-300 bg-white p-6 shadow-sm"
+        >
+
+          {/* NAME */}
+          <div>
+            <label className="mb-2 block text-sm font-semibold text-slate-800">
+              Name
+            </label>
+
+            <input
+              required
+              type="text"
+              name="name"
+              value={formData.name}
+              onChange={handleChange}
+              placeholder="Enter your name"
+              className="w-full rounded-xl border border-gray-300 bg-gray-50 px-4 py-3 text-slate-900 outline-none placeholder:text-gray-400 focus:border-yellow-400"
+            />
           </div>
 
-          {/* FORM */}
-          <form onSubmit={handleSubmit} className="p-5 sm:p-6 lg:p-8">
+          {/* EMAIL */}
+          <div className="mt-5">
+            <label className="mb-2 block text-sm font-semibold text-slate-800">
+              Email
+            </label>
 
-            {/* SUCCESS MESSAGE */}
-            {submitted && (
-              <div className="mb-5 rounded-xl border border-green-300 bg-green-50 p-3.5">
-                <div>
-                  <h3 className="text-sm font-bold text-green-700">
-                    Message submitted successfully
-                  </h3>
+            <input
+              required
+              type="email"
+              name="email"
+              value={formData.email}
+              onChange={handleChange}
+              placeholder="Enter your email"
+              className="w-full rounded-xl border border-gray-300 bg-gray-50 px-4 py-3 text-slate-900 outline-none placeholder:text-gray-400 focus:border-yellow-400"
+            />
+          </div>
 
-                  <p className="mt-1 text-xs leading-5 text-green-600">
-                    Thank you for contacting Royal X Casino. Your message has
-                    been received.
-                  </p>
-                </div>
-              </div>
-            )}
+          {/* PHONE */}
+          <div className="mt-5">
+            <label className="mb-2 block text-sm font-semibold text-slate-800">
+              Phone Number
+            </label>
 
-            <div className="grid gap-4 md:grid-cols-2">
+            <input
+              required
+              type="tel"
+              name="phone"
+              value={formData.phone}
+              onChange={handleChange}
+              placeholder="Enter your phone number"
+              className="w-full rounded-xl border border-gray-300 bg-gray-50 px-4 py-3 text-slate-900 outline-none placeholder:text-gray-400 focus:border-yellow-400"
+            />
+          </div>
 
-              {/* NAME */}
-              <div>
-                <label
-                  htmlFor="name"
-                  className="mb-1.5 block text-sm font-semibold text-gray-700"
-                >
-                  Your Name
-                </label>
+          {/* MESSAGE */}
+          <div className="mt-5">
+            <label className="mb-2 block text-sm font-semibold text-slate-800">
+              Message
+            </label>
 
-                <input
-                  id="name"
-                  name="name"
-                  type="text"
-                  value={formData.name}
-                  onChange={handleChange}
-                  placeholder="Enter your name"
-                  required
-                  className="w-full rounded-xl border border-gray-300 bg-gray-50 px-4 py-3 text-sm text-gray-900 outline-none transition placeholder:text-gray-400 focus:border-yellow-500 focus:bg-white focus:ring-2 focus:ring-yellow-400/20"
-                />
-              </div>
+            <textarea
+              required
+              rows="5"
+              name="message"
+              value={formData.message}
+              onChange={handleChange}
+              placeholder="Write your message"
+              className="w-full resize-none rounded-xl border border-gray-300 bg-gray-50 px-4 py-3 text-slate-900 outline-none placeholder:text-gray-400 focus:border-yellow-400"
+            ></textarea>
+          </div>
 
-              {/* EMAIL */}
-              <div>
-                <label
-                  htmlFor="email"
-                  className="mb-1.5 block text-sm font-semibold text-gray-700"
-                >
-                  Email Address
-                </label>
+          {/* BUTTON */}
+          <button
+            type="submit"
+            disabled={loading}
+            className={`mt-6 flex w-full items-center justify-center gap-2 rounded-xl px-5 py-3.5 font-bold text-slate-950 transition ${
+              loading
+                ? "cursor-not-allowed bg-gray-400"
+                : "bg-yellow-400 hover:bg-yellow-300"
+            }`}
+          >
+            {loading ? "Sending..." : "Send Message"}
 
-                <input
-                  id="email"
-                  name="email"
-                  type="email"
-                  value={formData.email}
-                  onChange={handleChange}
-                  placeholder="Enter your email"
-                  required
-                  className="w-full rounded-xl border border-gray-300 bg-gray-50 px-4 py-3 text-sm text-gray-900 outline-none transition placeholder:text-gray-400 focus:border-yellow-500 focus:bg-white focus:ring-2 focus:ring-yellow-400/20"
-                />
-              </div>
+            <Send size={18} />
+          </button>
 
-              {/* SUBJECT */}
-              <div className="md:col-span-2">
-                <label
-                  htmlFor="subject"
-                  className="mb-1.5 block text-sm font-semibold text-gray-700"
-                >
-                  Subject
-                </label>
-
-                <input
-                  id="subject"
-                  name="subject"
-                  type="text"
-                  value={formData.subject}
-                  onChange={handleChange}
-                  placeholder="What would you like to ask?"
-                  required
-                  className="w-full rounded-xl border border-gray-300 bg-gray-50 px-4 py-3 text-sm text-gray-900 outline-none transition placeholder:text-gray-400 focus:border-yellow-500 focus:bg-white focus:ring-2 focus:ring-yellow-400/20"
-                />
-              </div>
-
-              {/* MESSAGE */}
-              <div className="md:col-span-2">
-                <label
-                  htmlFor="message"
-                  className="mb-1.5 block text-sm font-semibold text-gray-700"
-                >
-                  Your Message
-                </label>
-
-                <textarea
-                  id="message"
-                  name="message"
-                  value={formData.message}
-                  onChange={handleChange}
-                  placeholder="Write your message here..."
-                  rows="5"
-                  required
-                  className="w-full resize-none rounded-xl border border-gray-300 bg-gray-50 px-4 py-3 text-sm leading-6 text-gray-900 outline-none transition placeholder:text-gray-400 focus:border-yellow-500 focus:bg-white focus:ring-2 focus:ring-yellow-400/20"
-                />
-              </div>
-            </div>
-
-            {/* NOTICE */}
-            <div className="mt-4 rounded-xl border border-yellow-400/30 bg-yellow-50 px-4 py-3">
-              <p className="text-xs leading-5 text-gray-600">
-                Please do not include passwords, payment information, or other
-                sensitive information in your message.
-              </p>
-            </div>
-
-            {/* BUTTON */}
-            <div className="mt-5 flex justify-end">
-              <button
-                type="submit"
-                className="rounded-xl bg-gradient-to-r from-yellow-300 to-amber-500 px-6 py-3 text-sm font-bold text-gray-900 shadow-lg shadow-yellow-500/10 transition duration-300 hover:-translate-y-0.5 hover:shadow-yellow-500/20"
-              >
-                Send Message
-              </button>
-            </div>
-
-          </form>
-        </div>
+        </form>
       </div>
     </section>
   );
 }
 
 export default ContactForm;
-
