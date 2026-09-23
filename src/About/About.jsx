@@ -1,13 +1,13 @@
 import AboutHero from "./AboutHero";
 import AboutContent from "./AboutContent";
-
+import InternalLinksArticle from "./InternalLinksArticle";
 
 function About() {
   return (
-    <main className="bg-slate-950">
+    <main>
       <AboutHero />
       <AboutContent />
-    
+      <InternalLinksArticle />
     </main>
   );
 }

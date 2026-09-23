@@ -1,11 +1,11 @@
 import DownloadHero from "./DownloadHero";
-
+import InternalLinksArticle from "./InternalLinksArticle";
 
 function Download() {
   return (
-    <main className="bg-slate-950">
+    <main>
       <DownloadHero />
-    
+      <InternalLinksArticle />
     </main>
   );
 }

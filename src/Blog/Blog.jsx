@@ -1,11 +1,13 @@
 import BlogHero from "./BlogHero";
-import BlogPosts from "./BlogPosts";
+import BlogContent from "./BlogContent";
+import InternalLinksArticle from "./InternalLinksArticle";
 
 function Blog() {
   return (
     <main>
       <BlogHero />
-      <BlogPosts />
+      <BlogContent />
+      <InternalLinksArticle />
     </main>
   );
 }

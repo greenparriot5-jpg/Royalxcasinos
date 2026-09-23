@@ -1,11 +1,13 @@
 import ContactHero from "./ContactHero";
 import ContactForm from "./ContactForm";
+import InternalLinksArticle from "./InternalLinksArticle";
 
 function Contact() {
   return (
-    <main className="bg-slate-950">
+    <main>
       <ContactHero />
       <ContactForm />
+      <InternalLinksArticle />
     </main>
   );
 }
