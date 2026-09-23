@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { Mail, MessageCircle, Send, Phone } from "lucide-react";
 import emailjs from "@emailjs/browser";
 
@@ -13,19 +13,23 @@ function ContactForm() {
   const [loading, setLoading] = useState(false);
 
   function handleChange(e) {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value,
-    });
+    const { name, value } = e.target;
+
+    setFormData((previousData) => ({
+      ...previousData,
+      [name]: value,
+    }));
   }
 
-  function handleSubmit(e) {
+  async function handleSubmit(e) {
     e.preventDefault();
+
+    if (loading) return;
 
     setLoading(true);
 
-    emailjs
-      .send(
+    try {
+      const result = await emailjs.send(
         "service_yx5kvr4",
         "template_z3th0n8",
         {
@@ -36,70 +40,82 @@ function ContactForm() {
           to_email: "zaarkhan483@gmail.com",
         },
         "o51quF5mpQW-ucABt"
-      )
-      .then((result) => {
-        console.log("EmailJS Success:", result.text);
+      );
 
-        alert("Message Sent Successfully!");
+      console.log("EmailJS Success:", result.text);
 
-        setFormData({
-          name: "",
-          email: "",
-          phone: "",
-          message: "",
-        });
+      alert("Message Sent Successfully!");
 
-        setLoading(false);
-      })
-      .catch((error) => {
-        console.error("EmailJS Error:", error);
-
-        alert(
-          `Message could not be sent.\n\nStatus: ${error.status}\nText: ${
-            error.text || "Unknown error"
-          }`
-        );
-
-        setLoading(false);
+      setFormData({
+        name: "",
+        email: "",
+        phone: "",
+        message: "",
       });
+    } catch (error) {
+      console.error("EmailJS Error:", error);
+
+      alert(
+        `Message could not be sent.\n\nStatus: ${
+          error?.status || "Unknown"
+        }\nText: ${error?.text || "Please try again later."}`
+      );
+    } finally {
+      setLoading(false);
+    }
   }
 
   return (
-    <section className="bg-gray-200">
-      <div className="mx-auto grid max-w-7xl gap-10 px-5 py-20 md:grid-cols-2">
+    <section
+      aria-labelledby="contact-form-title"
+      className="bg-gray-200"
+    >
+      <div className="mx-auto grid max-w-7xl gap-10 px-5 py-16 sm:py-20 md:grid-cols-2">
 
         {/* LEFT SIDE */}
         <div>
-          <p className="text-sm font-bold text-center uppercase tracking-[0.2em] text-yellow-600">
-            Contact
+          <p className="text-center text-sm font-bold uppercase tracking-[0.2em] text-yellow-600 md:text-left">
+            Royal X Casino Contact
           </p>
 
-          <h2 className="mt-3 text-4xl font-black text-slate-900">
-            We would love to hear from you
+          <h2
+            id="contact-form-title"
+            className="mt-3 text-center text-3xl font-black text-slate-900 sm:text-4xl md:text-left"
+          >
+            Contact Royal X Casino
           </h2>
 
-          <p className="mt-5 leading-8 text-slate-600">
-            If you have questions, suggestions or feedback about our
-            entertainment platform, use the form and send us a message.
+          <p className="mt-5 text-center leading-8 text-slate-600 md:text-left">
+            Have a question, suggestion, or feedback about Royal X Casino?
+            Send us a message using the contact form and provide the details
+            needed to help us understand your request.
           </p>
 
+          {/* CONTACT INFORMATION */}
           <div className="mt-8 space-y-4">
 
             {/* EMAIL */}
             <a
               href="mailto:zaarkhan483@gmail.com"
+              aria-label="Email Royal X Casino Support"
               className="flex items-center gap-4 rounded-xl border border-gray-300 bg-white p-4 transition hover:border-yellow-400 hover:shadow-sm"
             >
-              <Mail className="text-yellow-500" />
+              <Mail
+                aria-hidden="true"
+                className="shrink-0 text-yellow-500"
+              />
 
               <span className="text-slate-700">
                 contact@royalxcasinos777.com
               </span>
             </a>
 
-            {/* PHONE / SUPPORT */}
+            {/* SUPPORT */}
             <div className="flex items-center gap-4 rounded-xl border border-gray-300 bg-white p-4">
-              <Phone className="text-yellow-500" />
+              <Phone
+                aria-hidden="true"
+                className="shrink-0 text-yellow-500"
+              />
 
               <span className="text-slate-700">
                 Contact Support
@@ -108,7 +124,10 @@ function ContactForm() {
 
             {/* CUSTOMER SUPPORT */}
             <div className="flex items-center gap-4 rounded-xl border border-gray-300 bg-white p-4">
-              <MessageCircle className="text-yellow-500" />
+              <MessageCircle
+                aria-hidden="true"
+                className="shrink-0 text-yellow-500"
+              />
 
               <span className="text-slate-700">
                 Customer Support
@@ -121,75 +140,95 @@ function ContactForm() {
         {/* RIGHT SIDE */}
         <form
           onSubmit={handleSubmit}
-          className="rounded-2xl border border-gray-300 bg-white p-6 shadow-sm"
+          aria-label="Royal X Casino contact form"
+          className="rounded-2xl border border-gray-300 bg-white p-6 shadow-sm sm:p-8"
         >
 
           {/* NAME */}
           <div>
-            <label className="mb-2 block text-sm font-semibold text-slate-800">
+            <label
+              htmlFor="contact-name"
+              className="mb-2 block text-sm font-semibold text-slate-800"
+            >
               Name
             </label>
 
             <input
+              id="contact-name"
               required
+              autoComplete="name"
               type="text"
               name="name"
               value={formData.name}
               onChange={handleChange}
               placeholder="Enter your name"
-              className="w-full rounded-xl border border-gray-300 bg-gray-50 px-4 py-3 text-slate-900 outline-none placeholder:text-gray-400 focus:border-yellow-400"
+              className="w-full rounded-xl border border-gray-300 bg-gray-50 px-4 py-3 text-slate-900 outline-none placeholder:text-gray-400 focus:border-yellow-400 focus:ring-1 focus:ring-yellow-400"
             />
           </div>
 
           {/* EMAIL */}
           <div className="mt-5">
-            <label className="mb-2 block text-sm font-semibold text-slate-800">
+            <label
+              htmlFor="contact-email"
+              className="mb-2 block text-sm font-semibold text-slate-800"
+            >
               Email
             </label>
 
             <input
+              id="contact-email"
               required
+              autoComplete="email"
               type="email"
               name="email"
               value={formData.email}
               onChange={handleChange}
               placeholder="Enter your email"
-              className="w-full rounded-xl border border-gray-300 bg-gray-50 px-4 py-3 text-slate-900 outline-none placeholder:text-gray-400 focus:border-yellow-400"
+              className="w-full rounded-xl border border-gray-300 bg-gray-50 px-4 py-3 text-slate-900 outline-none placeholder:text-gray-400 focus:border-yellow-400 focus:ring-1 focus:ring-yellow-400"
             />
           </div>
 
           {/* PHONE */}
           <div className="mt-5">
-            <label className="mb-2 block text-sm font-semibold text-slate-800">
+            <label
+              htmlFor="contact-phone"
+              className="mb-2 block text-sm font-semibold text-slate-800"
+            >
               Phone Number
             </label>
 
             <input
+              id="contact-phone"
               required
+              autoComplete="tel"
               type="tel"
               name="phone"
               value={formData.phone}
               onChange={handleChange}
               placeholder="Enter your phone number"
-              className="w-full rounded-xl border border-gray-300 bg-gray-50 px-4 py-3 text-slate-900 outline-none placeholder:text-gray-400 focus:border-yellow-400"
+              className="w-full rounded-xl border border-gray-300 bg-gray-50 px-4 py-3 text-slate-900 outline-none placeholder:text-gray-400 focus:border-yellow-400 focus:ring-1 focus:ring-yellow-400"
             />
           </div>
 
           {/* MESSAGE */}
           <div className="mt-5">
-            <label className="mb-2 block text-sm font-semibold text-slate-800">
+            <label
+              htmlFor="contact-message"
+              className="mb-2 block text-sm font-semibold text-slate-800"
+            >
               Message
             </label>
 
             <textarea
+              id="contact-message"
               required
-              rows="5"
+              rows={5}
               name="message"
               value={formData.message}
               onChange={handleChange}
               placeholder="Write your message"
-              className="w-full resize-none rounded-xl border border-gray-300 bg-gray-50 px-4 py-3 text-slate-900 outline-none placeholder:text-gray-400 focus:border-yellow-400"
-            ></textarea>
+              className="w-full resize-none rounded-xl border border-gray-300 bg-gray-50 px-4 py-3 text-slate-900 outline-none placeholder:text-gray-400 focus:border-yellow-400 focus:ring-1 focus:ring-yellow-400"
+            />
           </div>
 
           {/* BUTTON */}
@@ -202,11 +241,13 @@ function ContactForm() {
                 : "bg-yellow-400 hover:bg-yellow-300"
             }`}
           >
-            {loading ? "Sending..." : "Send Message"}
+            <span>{loading ? "Sending..." : "Send Message"}</span>
 
-            <Send size={18} />
+            <Send
+              size={18}
+              aria-hidden="true"
+            />
           </button>
-
         </form>
       </div>
     </section>
