@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
+import { BrowserRouter, Routes, Route, useLocation, useNavigate } from "react-router-dom";
 import { useEffect } from "react";
 
 // Common Components
@@ -12,39 +12,34 @@ import Blog from "./Blog/Blog";
 import Contact from "./Contact/Contact";
 import Download from "./Download/Download";
 
-// Dynamic Canonical URL - FIXED + Case Insensitive
+// FIX 1: Bade URL ko Chote par bhejne ke liye (404 Khatam)
+function LowercaseRedirect() {
+  const { pathname } = useLocation();
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    if (pathname!== pathname.toLowerCase()) {
+      navigate(pathname.toLowerCase(), { replace: true });
+    }
+  }, [pathname, navigate]);
+
+  return null;
+}
+
+// FIX 2: Sahi Canonical Tag Lagane ke liye (Duplicate Khatam)
 function CanonicalURL() {
   const { pathname } = useLocation();
 
   useEffect(() => {
     const baseUrl = "https://royalxcasinos777.com";
-    const lowerPath = pathname.toLowerCase();
-
-    // Sitemap ke mutabiq canonical set karein (sab chote me)
-    let canonicalUrl;
-
-    if (lowerPath === "/" || lowerPath === "") {
-      canonicalUrl = baseUrl + "/";
-    } else if (lowerPath.startsWith("/blog")) {
-      canonicalUrl = baseUrl + "/blog/";
-    } else if (lowerPath.startsWith("/contact")) {
-      canonicalUrl = baseUrl + "/contact/";
-    } else if (lowerPath.startsWith("/about")) {
-      canonicalUrl = baseUrl + "/about";
-    } else if (lowerPath.startsWith("/download")) {
-      canonicalUrl = baseUrl + "/download";
-    } else {
-      canonicalUrl = baseUrl + lowerPath;
-    }
+    const canonicalUrl = baseUrl + (pathname === "/"? "/" : pathname.toLowerCase());
 
     let canonical = document.querySelector('link[rel="canonical"]');
-
     if (!canonical) {
       canonical = document.createElement("link");
       canonical.setAttribute("rel", "canonical");
       document.head.appendChild(canonical);
     }
-
     canonical.setAttribute("href", canonicalUrl);
   }, [pathname]);
 
@@ -63,28 +58,17 @@ function ScrollToTop() {
 function App() {
   return (
     <BrowserRouter>
+      <LowercaseRedirect />
       <CanonicalURL />
       <ScrollToTop />
       <Header />
       <Routes>
-        {/* Home */}
+        {/* Sirf chote wale routes rakhe hain - Duplicate khatam */}
         <Route path="/" element={<Home />} />
-
-        {/* About - chota aur bara dono */}
         <Route path="/about" element={<About />} />
-        <Route path="/About" element={<About />} />
-
-        {/* Blog - chota aur bara dono */}
         <Route path="/blog" element={<Blog />} />
-        <Route path="/Blog" element={<Blog />} />
-
-        {/* Contact - chota aur bara dono */}
         <Route path="/contact" element={<Contact />} />
-        <Route path="/Contact" element={<Contact />} />
-
-        {/* Download - chota aur bara dono */}
         <Route path="/download" element={<Download />} />
-        <Route path="/Download" element={<Download />} />
       </Routes>
       <Footer />
     </BrowserRouter>
