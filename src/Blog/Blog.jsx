@@ -10,7 +10,7 @@ function Blog() {
       <BlogPosts />
       <InternalLinksArticle />
     </main>
-  );
+  ); 
 }
 
 export default Blog;
