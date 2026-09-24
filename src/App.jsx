@@ -12,28 +12,29 @@ import Blog from "./Blog/Blog";
 import Contact from "./Contact/Contact";
 import Download from "./Download/Download";
 
-// Dynamic Canonical URL - FIXED
+// Dynamic Canonical URL - FIXED + Case Insensitive
 function CanonicalURL() {
   const { pathname } = useLocation();
 
   useEffect(() => {
     const baseUrl = "https://royalxcasinos777.com";
+    const lowerPath = pathname.toLowerCase();
 
-    // Sitemap ke mutabiq canonical set karein
+    // Sitemap ke mutabiq canonical set karein (sab chote me)
     let canonicalUrl;
 
-    if (pathname === "/" || pathname === "") {
+    if (lowerPath === "/" || lowerPath === "") {
       canonicalUrl = baseUrl + "/";
-    } else if (pathname.startsWith("/blog")) {
+    } else if (lowerPath.startsWith("/blog")) {
       canonicalUrl = baseUrl + "/blog/";
-    } else if (pathname.startsWith("/contact")) {
+    } else if (lowerPath.startsWith("/contact")) {
       canonicalUrl = baseUrl + "/contact/";
-    } else if (pathname.startsWith("/about")) {
+    } else if (lowerPath.startsWith("/about")) {
       canonicalUrl = baseUrl + "/about";
-    } else if (pathname.startsWith("/download")) {
+    } else if (lowerPath.startsWith("/download")) {
       canonicalUrl = baseUrl + "/download";
     } else {
-      canonicalUrl = baseUrl + pathname;
+      canonicalUrl = baseUrl + lowerPath;
     }
 
     let canonical = document.querySelector('link[rel="canonical"]');
@@ -66,11 +67,24 @@ function App() {
       <ScrollToTop />
       <Header />
       <Routes>
+        {/* Home */}
         <Route path="/" element={<Home />} />
+
+        {/* About - chota aur bara dono */}
         <Route path="/about" element={<About />} />
+        <Route path="/About" element={<About />} />
+
+        {/* Blog - chota aur bara dono */}
         <Route path="/blog" element={<Blog />} />
+        <Route path="/Blog" element={<Blog />} />
+
+        {/* Contact - chota aur bara dono */}
         <Route path="/contact" element={<Contact />} />
+        <Route path="/Contact" element={<Contact />} />
+
+        {/* Download - chota aur bara dono */}
         <Route path="/download" element={<Download />} />
+        <Route path="/Download" element={<Download />} />
       </Routes>
       <Footer />
     </BrowserRouter>
