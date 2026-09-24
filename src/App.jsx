@@ -32,15 +32,20 @@ function CanonicalURL() {
 
   useEffect(() => {
     const baseUrl = "https://royalxcasinos777.com";
-    const canonicalUrl = baseUrl + (pathname === "/"? "/" : pathname.toLowerCase());
+    const lowerPath = pathname.toLowerCase();
+    const canonicalUrl = baseUrl + (lowerPath === "/"? "/" : lowerPath);
 
+    // Purana wala remove karke naya lagao taake pakka lage
     let canonical = document.querySelector('link[rel="canonical"]');
-    if (!canonical) {
-      canonical = document.createElement("link");
-      canonical.setAttribute("rel", "canonical");
-      document.head.appendChild(canonical);
+    if (canonical) {
+      canonical.remove();
     }
+    canonical = document.createElement("link");
+    canonical.setAttribute("rel", "canonical");
     canonical.setAttribute("href", canonicalUrl);
+    document.head.appendChild(canonical);
+
+    console.log("Canonical FIXED:", canonicalUrl);
   }, [pathname]);
 
   return null;
@@ -63,7 +68,6 @@ function App() {
       <ScrollToTop />
       <Header />
       <Routes>
-        {/* Sirf chote wale routes rakhe hain - Duplicate khatam */}
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />
         <Route path="/blog" element={<Blog />} />
