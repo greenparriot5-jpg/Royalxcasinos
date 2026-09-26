@@ -1,7 +1,27 @@
 {
   "$schema": "https://openapi.vercel.sh/vercel.json",
-  "cleanUrls": true,
-  "trailingSlash": false,
+  "redirects": [
+    {
+      "source": "/Blog",
+      "destination": "/blog",
+      "permanent": true
+    },
+    {
+      "source": "/About",
+      "destination": "/about",
+      "permanent": true
+    },
+    {
+      "source": "/Contact",
+      "destination": "/contact",
+      "permanent": true
+    },
+    {
+      "source": "/Download",
+      "destination": "/download",
+      "permanent": true
+    }
+  ],
   "rewrites": [
     {
       "source": "/(.*)",
