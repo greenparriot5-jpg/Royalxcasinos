@@ -44,7 +44,7 @@ function GameSection() {
   return (
     <section
       aria-labelledby="royal-x-features-title"
-      className="relative overflow-hidden bg-gray-200 py-16 sm:py-20 lg:py-24"
+      className="relative overflow-hidden bg-gray-200 py-16 sm:py-20 lg:py-8"
     >
       {/* Background Glow */}
       <div

@@ -8,17 +8,14 @@ function Home() {
   return (
     <>
       <Helmet>
-        <title>Royal X Casino 777 | Online Gaming Platform</title>
+        <title>Royal X Casino 777 real game in Pakistan</title>
 
         <meta
           name="description"
           content="Explore Royal X Casino 777, including gaming features, mobile access, account information, promotions, download guidance, and responsible gaming information."
         />
 
-        <meta
-          name="robots"
-          content="index, follow, max-image-preview:large"
-        />
+        <meta name="robots" content="index, follow, max-image-preview:large" />
 
         <link rel="canonical" href="/" />
       </Helmet>

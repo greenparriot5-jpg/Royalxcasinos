@@ -4,7 +4,7 @@ const ContentSection = () => {
   return (
     <section
       aria-labelledby="royal-x-platform-overview"
-      className="bg-gray-200 pb-24 pt-0"
+      className="bg-gray-200  pt-0"
     >
       <div className="mx-auto max-w-5xl px-6 lg:px-8">
         <article className="rounded-2xl border border-gray-300 bg-white p-8 shadow-sm sm:p-10">

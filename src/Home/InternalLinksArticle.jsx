@@ -5,7 +5,7 @@ function InternalLinksArticle() {
   return (
     <section
       aria-labelledby="royal-x-useful-pages"
-      className="bg-gray-200 py-10 sm:py-14"
+      className="bg-gray-200 py-10 sm:py-2"
     >
       <div className="mx-auto max-w-5xl px-5 lg:px-8">
         <article className="rounded-2xl border border-gray-300 bg-white p-6 shadow-sm sm:p-8 lg:p-10">

@@ -7,7 +7,7 @@ function Contact() {
   return (
     <>
       <Helmet>
-        <title>Contact Royal X Casino 777 | Support & Assistance</title>
+        <title>Royal X Casino 777 latest version | Support & Assistance</title>
 
         <meta
           name="description"
