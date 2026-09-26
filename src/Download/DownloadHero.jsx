@@ -1,6 +1,5 @@
 function DownloadHero() {
-  const gameReferralLink =
-    "https://xrefer.cc?refer_id=101173217883";
+  const gameReferralLink = "https://xrefer.cc?refer_id=101173217883";
 
   const gameImage =
     "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTiqfYH_OIo9NQkbkxCcnY901RV6ddx6PfIsqiRfgdx1cmF3ZdgfbG2Ass0&s=10";
@@ -30,7 +29,6 @@ function DownloadHero() {
 
       {/* Main Content */}
       <div className="relative z-10 mx-auto w-full max-w-7xl px-4 py-6 sm:px-6 lg:px-8 lg:py-10">
-
         {/* Game Image */}
         <div className="relative mx-auto mb-8 w-full max-w-5xl">
           <div
@@ -64,7 +62,6 @@ function DownloadHero() {
 
         {/* Download Information */}
         <div className="mx-auto max-w-5xl text-center">
-
           {/* Label */}
           <p className="mb-4 inline-flex rounded-full border border-yellow-500/30 bg-white/70 px-4 py-2 text-xs font-bold uppercase tracking-[0.16em] text-yellow-700 shadow-sm backdrop-blur-sm">
             Royal X Casino Download
@@ -91,7 +88,6 @@ function DownloadHero() {
 
           {/* Buttons */}
           <div className="mt-7 flex flex-col justify-center gap-4 sm:flex-row">
-
             <a
               href={gameReferralLink}
               target="_blank"
@@ -111,12 +107,10 @@ function DownloadHero() {
             >
               Open Gaming Platform
             </a>
-
           </div>
 
           {/* Information Cards */}
           <div className="mx-auto mt-8 grid max-w-4xl grid-cols-1 gap-4 sm:grid-cols-3">
-
             <article className="rounded-2xl border border-gray-300/70 bg-white/70 p-5 text-left shadow-sm backdrop-blur-sm">
               <h2 className="text-sm font-extrabold text-gray-900">
                 Mobile Gaming
@@ -149,7 +143,6 @@ function DownloadHero() {
                 account information, and other website resources.
               </p>
             </article>
-
           </div>
         </div>
       </div>
