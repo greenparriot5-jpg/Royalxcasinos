@@ -1,10 +1,11 @@
+import { Link } from "react-router-dom";
+
 function AboutHero() {
   return (
     <section
       aria-labelledby="about-royal-x-heading"
       className="relative overflow-hidden bg-gray-200 py-8 text-slate-900 sm:py-10 lg:py-12"
     >
-      {/* Background Effects */}
       <div
         aria-hidden="true"
         className="pointer-events-none absolute left-0 top-0 h-72 w-72 rounded-full bg-yellow-400/10 blur-3xl"
@@ -17,92 +18,78 @@ function AboutHero() {
 
       <div className="relative mx-auto max-w-7xl px-6 lg:px-8">
         <div className="mx-auto max-w-4xl text-center">
-
-          {/* Badge */}
           <div className="inline-flex rounded-full border border-yellow-400/40 bg-yellow-50 px-5 py-2 text-sm font-semibold text-yellow-700 shadow-sm">
-            About Royal X Casino
+            About Royal X Casino 777
           </div>
 
-          {/* Main SEO Heading */}
           <h1
             id="about-royal-x-heading"
             className="mt-5 text-4xl font-extrabold leading-tight tracking-tight text-slate-900 sm:text-5xl lg:text-6xl"
           >
-            Discover the World of
+            About Royal X Casino 777
             <span className="block text-yellow-500">
-              Royal X Casino
+              Gaming Platform
             </span>
           </h1>
 
-          {/* Intro Description */}
           <p className="mx-auto mt-5 max-w-2xl text-base leading-7 text-slate-600 sm:text-lg">
-            Learn more about Royal X Casino, its online gaming experience,
-            platform features, mobile access, game information, and convenient
-            ways to explore the Royal X gaming platform.
+            Learn about Royal X Casino 777, including its online gaming
+            platform, available features, mobile access, game information,
+            account guidance, and general platform resources.
           </p>
 
-          {/* Navigation Buttons */}
           <div className="mt-7 flex flex-wrap justify-center gap-4">
-
             <a
               href="#about-content"
-              aria-label="Learn more about Royal X Casino"
+              aria-label="Read about Royal X Casino 777"
               className="rounded-xl bg-yellow-400 px-7 py-3.5 font-bold text-slate-950 shadow-md shadow-yellow-200 transition duration-300 hover:-translate-y-1 hover:bg-yellow-300 hover:shadow-lg"
             >
               Learn More
             </a>
 
-            <a
-              href="/"
+            <Link
+              to="/"
               aria-label="Return to Royal X Casino home page"
               className="rounded-xl border border-slate-300 bg-white px-7 py-3.5 font-bold text-slate-800 shadow-sm transition duration-300 hover:-translate-y-1 hover:border-yellow-400 hover:bg-yellow-50"
             >
-              Back to Home
-            </a>
-
+              Royal X Casino Home
+            </Link>
           </div>
 
-          {/* Key Information */}
           <div
-            aria-label="Royal X Casino highlights"
+            aria-label="Royal X Casino 777 information highlights"
             className="mt-9 grid grid-cols-1 gap-4 sm:grid-cols-3"
           >
-
-            {/* Card 1 */}
             <div className="rounded-2xl border border-slate-300 bg-white p-5 shadow-sm transition duration-300 hover:-translate-y-1 hover:border-yellow-400 hover:shadow-md">
               <h2 className="text-2xl font-extrabold text-yellow-500">
-                Easy
+                Gaming
               </h2>
 
               <p className="mt-1 text-sm text-slate-500">
-                Platform Access
+                Platform Information
               </p>
             </div>
 
-            {/* Card 2 */}
             <div className="rounded-2xl border border-slate-300 bg-white p-5 shadow-sm transition duration-300 hover:-translate-y-1 hover:border-yellow-400 hover:shadow-md">
               <h2 className="text-2xl font-extrabold text-yellow-500">
-                Smooth
+                Mobile
               </h2>
 
               <p className="mt-1 text-sm text-slate-500">
-                Gaming Experience
+                Device Access
               </p>
             </div>
 
-            {/* Card 3 */}
             <div className="rounded-2xl border border-slate-300 bg-white p-5 shadow-sm transition duration-300 hover:-translate-y-1 hover:border-yellow-400 hover:shadow-md">
               <h2 className="text-2xl font-extrabold text-yellow-500">
-                Modern
+                Guides
               </h2>
 
               <p className="mt-1 text-sm text-slate-500">
-                Digital Experience
+                Helpful Resources
               </p>
             </div>
-
           </div>
-
         </div>
       </div>
     </section>

@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://royalxcasinos777.com/sitemap.xml
+Sitemap: https://royalxcasinos777.com/sitemap.xml 

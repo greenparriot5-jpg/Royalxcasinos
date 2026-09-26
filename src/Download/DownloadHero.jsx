@@ -42,14 +42,14 @@ function DownloadHero() {
             href={gameReferralLink}
             target="_blank"
             rel="noopener noreferrer"
-            aria-label="Download Royal X Casino game"
+            aria-label="Access Royal X Casino gaming platform"
             className="relative z-10 block w-full"
           >
             <div className="relative overflow-hidden rounded-2xl border border-yellow-500/30 bg-white/70 p-2 shadow-2xl shadow-yellow-500/20 backdrop-blur-xl transition duration-300 hover:-translate-y-1 sm:rounded-3xl sm:p-3">
               <div className="relative h-[220px] overflow-hidden rounded-xl bg-gray-100 sm:h-[270px] md:h-[320px] lg:h-[360px] sm:rounded-2xl">
                 <img
                   src={gameImage}
-                  alt="Royal X Casino game download"
+                  alt="Royal X Casino mobile gaming platform"
                   width="1200"
                   height="675"
                   loading="eager"
@@ -75,18 +75,18 @@ function DownloadHero() {
             id="download-title"
             className="text-4xl font-black leading-[1.08] tracking-tight text-gray-900 sm:text-5xl md:text-6xl lg:text-7xl"
           >
-            Download Royal X Casino
+            Royal X Casino
             <span className="block bg-gradient-to-r from-yellow-500 via-amber-500 to-yellow-600 bg-clip-text text-transparent">
-              App
+              Download & Mobile Access
             </span>
           </h1>
 
           {/* Description */}
           <p className="mx-auto mt-5 max-w-3xl text-base leading-8 text-gray-600 sm:text-lg">
-            Download Royal X Casino and access the gaming platform through
-            your compatible mobile device. Explore available games, account
-            features, and platform information through a simple and
-            convenient gaming experience.
+            Learn more about Royal X Casino mobile access and use the available
+            platform link to continue on a compatible device. Explore gaming
+            options, account features, and platform information before getting
+            started.
           </p>
 
           {/* Buttons */}
@@ -96,20 +96,20 @@ function DownloadHero() {
               href={gameReferralLink}
               target="_blank"
               rel="noopener noreferrer"
-              aria-label="Download Royal X Casino app"
+              aria-label="Access Royal X Casino"
               className="inline-flex items-center justify-center rounded-xl bg-gradient-to-r from-yellow-400 via-amber-500 to-yellow-500 px-8 py-4 text-sm font-extrabold text-gray-900 shadow-xl shadow-yellow-500/20 transition duration-300 hover:-translate-y-1 hover:shadow-yellow-500/40"
             >
-              Download Royal X Casino
+              Access Royal X Casino
             </a>
 
             <a
               href={gameReferralLink}
               target="_blank"
               rel="noopener noreferrer"
-              aria-label="Access Royal X Casino platform"
+              aria-label="Open Royal X Casino gaming platform"
               className="inline-flex items-center justify-center rounded-xl border border-gray-300 bg-white/80 px-8 py-4 text-sm font-bold text-gray-800 shadow-sm transition duration-300 hover:-translate-y-1 hover:border-yellow-400 hover:bg-yellow-50"
             >
-              Access Platform
+              Open Gaming Platform
             </a>
 
           </div>
@@ -123,14 +123,14 @@ function DownloadHero() {
               </h2>
 
               <p className="mt-2 text-xs leading-6 text-gray-500">
-                Explore Royal X Casino on compatible smartphones and mobile
-                devices through a convenient gaming experience.
+                Explore the Royal X Casino platform on compatible smartphones
+                and mobile devices where the service is available.
               </p>
             </article>
 
             <article className="rounded-2xl border border-gray-300/70 bg-white/70 p-5 text-left shadow-sm backdrop-blur-sm">
               <h2 className="text-sm font-extrabold text-gray-900">
-                Secure Account Access
+                Account Access
               </h2>
 
               <p className="mt-2 text-xs leading-6 text-gray-500">
@@ -146,7 +146,7 @@ function DownloadHero() {
 
               <p className="mt-2 text-xs leading-6 text-gray-500">
                 Use the available platform sections to explore gaming options,
-                account information, and other Royal X Casino features.
+                account information, and other website resources.
               </p>
             </article>
 

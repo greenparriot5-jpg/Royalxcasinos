@@ -71,33 +71,31 @@ function ContactForm() {
       className="bg-gray-200"
     >
       <div className="mx-auto grid max-w-7xl gap-10 px-5 py-16 sm:py-20 md:grid-cols-2">
-
         {/* LEFT SIDE */}
         <div>
           <p className="text-center text-sm font-bold uppercase tracking-[0.2em] text-yellow-600 md:text-left">
-            Royal X Casino Contact
+            Royal X Casino 777 Contact
           </p>
 
           <h2
             id="contact-form-title"
             className="mt-3 text-center text-3xl font-black text-slate-900 sm:text-4xl md:text-left"
           >
-            Contact Royal X Casino
+            Contact Royal X Casino 777
           </h2>
 
           <p className="mt-5 text-center leading-8 text-slate-600 md:text-left">
-            Have a question, suggestion, or feedback about Royal X Casino?
-            Send us a message using the contact form and provide the details
-            needed to help us understand your request.
+            Have a question, suggestion, or feedback about Royal X Casino
+            777? Send us a message using the contact form and provide the
+            details needed to understand your request.
           </p>
 
           {/* CONTACT INFORMATION */}
           <div className="mt-8 space-y-4">
-
             {/* EMAIL */}
             <a
-              href="mailto:zaarkhan483@gmail.com"
-              aria-label="Email Royal X Casino Support"
+              href="mailto:contact@royalxcasinos777.com"
+              aria-label="Email Royal X Casino 777 Support"
               className="flex items-center gap-4 rounded-xl border border-gray-300 bg-white p-4 transition hover:border-yellow-400 hover:shadow-sm"
             >
               <Mail
@@ -133,17 +131,15 @@ function ContactForm() {
                 Customer Support
               </span>
             </div>
-
           </div>
         </div>
 
         {/* RIGHT SIDE */}
         <form
           onSubmit={handleSubmit}
-          aria-label="Royal X Casino contact form"
+          aria-label="Royal X Casino 777 contact form"
           className="rounded-2xl border border-gray-300 bg-white p-6 shadow-sm sm:p-8"
         >
-
           {/* NAME */}
           <div>
             <label

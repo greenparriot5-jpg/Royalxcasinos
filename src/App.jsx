@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route, useLocation, useNavigate } from "react-router-dom";
+import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
 import { useEffect } from "react";
 
 // Common Components
@@ -12,61 +12,28 @@ import Blog from "./Blog/Blog";
 import Contact from "./Contact/Contact";
 import Download from "./Download/Download";
 
-// FIX 1: Bade URL ko Chote par bhejne ke liye (404 Khatam)
-function LowercaseRedirect() {
-  const { pathname } = useLocation();
-  const navigate = useNavigate();
-
-  useEffect(() => {
-    if (pathname!== pathname.toLowerCase()) {
-      navigate(pathname.toLowerCase(), { replace: true });
-    }
-  }, [pathname, navigate]);
-
-  return null;
-}
-
-// FIX 2: Sahi Canonical Tag Lagane ke liye (Duplicate Khatam)
-function CanonicalURL() {
-  const { pathname } = useLocation();
-
-  useEffect(() => {
-    const baseUrl = "https://royalxcasinos777.com";
-    const lowerPath = pathname.toLowerCase();
-    const canonicalUrl = baseUrl + (lowerPath === "/"? "/" : lowerPath);
-
-    // Purana wala remove karke naya lagao taake pakka lage
-    let canonical = document.querySelector('link[rel="canonical"]');
-    if (canonical) {
-      canonical.remove();
-    }
-    canonical = document.createElement("link");
-    canonical.setAttribute("rel", "canonical");
-    canonical.setAttribute("href", canonicalUrl);
-    document.head.appendChild(canonical);
-
-    console.log("Canonical FIXED:", canonicalUrl);
-  }, [pathname]);
-
-  return null;
-}
-
-// Scroll to top on every page change
+// Scroll to top whenever the route changes
 function ScrollToTop() {
   const { pathname } = useLocation();
+
   useEffect(() => {
-    window.scrollTo(0, 0);
+    window.scrollTo({
+      top: 0,
+      left: 0,
+      behavior: "instant",
+    });
   }, [pathname]);
+
   return null;
 }
 
 function App() {
   return (
     <BrowserRouter>
-      <LowercaseRedirect />
-      <CanonicalURL />
       <ScrollToTop />
+
       <Header />
+
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />
@@ -74,6 +41,7 @@ function App() {
         <Route path="/contact" element={<Contact />} />
         <Route path="/download" element={<Download />} />
       </Routes>
+
       <Footer />
     </BrowserRouter>
   );
